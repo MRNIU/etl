@@ -145,6 +145,16 @@ SOFTWARE.
 #endif
 
 //*************************************
+// Helper macro for ETL_NO_FLOATING_POINT.
+#if defined(ETL_NO_FLOATING_POINT)
+  #define ETL_USING_FLOATING_POINT     0
+  #define ETL_NOT_USING_FLOATING_POINT 1
+#else
+  #define ETL_USING_FLOATING_POINT     1
+  #define ETL_NOT_USING_FLOATING_POINT 0
+#endif
+
+//*************************************
 // For when the runtime library is compiled without wchar_t support.
 #if defined(ETL_NO_WIDE_CHARACTERS)
   #define ETL_USING_WIDE_CHARACTERS     0
@@ -656,6 +666,7 @@ namespace etl
     static ETL_CONSTANT bool has_initializer_list             = (ETL_HAS_INITIALIZER_LIST == 1);
     static ETL_CONSTANT bool has_8bit_types                   = (ETL_USING_8BIT_TYPES == 1);
     static ETL_CONSTANT bool has_64bit_types                  = (ETL_USING_64BIT_TYPES == 1);
+    static ETL_CONSTANT bool has_floating_point               = (ETL_USING_FLOATING_POINT == 1);
     static ETL_CONSTANT bool has_atomic                       = (ETL_HAS_ATOMIC == 1);
     static ETL_CONSTANT bool has_atomic_always_lock_free      = (ETL_HAS_ATOMIC_ALWAYS_LOCK_FREE == 1);
     static ETL_CONSTANT bool has_nullptr                      = (ETL_HAS_NULLPTR == 1);
