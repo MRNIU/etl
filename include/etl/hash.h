@@ -383,6 +383,7 @@ namespace etl
     }
   };
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// Specialisation for float.
   ///\ingroup hash
@@ -485,6 +486,7 @@ namespace etl
     }
   };
 
+#endif // ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// Specialisation for pointers.
   ///\ingroup hash

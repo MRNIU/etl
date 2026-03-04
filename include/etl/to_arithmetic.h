@@ -452,6 +452,7 @@ namespace etl
       to_arithmetic_status conversion_status;
     };
 
+#if ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// Accumulate floating point
     //***************************************************************************
@@ -636,6 +637,7 @@ namespace etl
       int  state;
       to_arithmetic_status conversion_status;
     };
+#endif // ETL_USING_FLOATING_POINT
 
     //***************************************************************************
     // Define an unsigned accumulator type that is at least as large as TValue.
@@ -871,6 +873,7 @@ namespace etl
     return etl::to_arithmetic<TValue, TChar>(etl::basic_string_view<TChar>(str), spec);
   }
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// Floating point from view.
   //***************************************************************************
@@ -967,6 +970,7 @@ namespace etl
   {
     return etl::to_arithmetic<TValue, TChar>(etl::basic_string_view<TChar>(str));
   }
+#endif // ETL_USING_FLOATING_POINT
 }
 
 //***************************************************************************
