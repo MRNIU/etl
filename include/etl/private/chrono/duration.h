@@ -727,6 +727,7 @@ namespace etl
         return etl::chrono::hours(static_cast<etl::chrono::hours::rep>(h));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point hours duration
       //***********************************************************************
@@ -738,6 +739,7 @@ namespace etl
       {
         return etl::chrono::duration<double, ratio<3600>>(h);
       }
+#endif // ETL_USING_FLOATING_POINT
 
       //***********************************************************************
       /// Literal for minutes duration
@@ -751,6 +753,7 @@ namespace etl
         return etl::chrono::minutes(static_cast<etl::chrono::minutes::rep>(m));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point minutes duration
       //***********************************************************************
@@ -762,6 +765,7 @@ namespace etl
       {
         return etl::chrono::duration<double, ratio<60>>(m);
       }
+#endif // ETL_USING_FLOATING_POINT
 
       //***********************************************************************
       /// Literal for seconds duration
@@ -775,6 +779,7 @@ namespace etl
         return etl::chrono::seconds(static_cast<etl::chrono::seconds::rep>(s));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point seconds duration
       //***********************************************************************
@@ -786,6 +791,7 @@ namespace etl
       {
         return etl::chrono::duration<double>(s);
       }
+#endif // ETL_USING_FLOATING_POINT
 
       //***********************************************************************
       /// Literal for milliseconds duration
@@ -799,6 +805,7 @@ namespace etl
         return etl::chrono::milliseconds(static_cast<etl::chrono::milliseconds::rep>(s));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point milliseconds duration
       //***********************************************************************
@@ -810,6 +817,7 @@ namespace etl
       {
         return etl::chrono::duration<double, milli>(s);
       }
+#endif // ETL_USING_FLOATING_POINT
 
       //***********************************************************************
       /// Literal for microseconds duration
@@ -823,6 +831,7 @@ namespace etl
         return etl::chrono::microseconds(static_cast<etl::chrono::microseconds::rep>(s));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point microseconds duration
       //***********************************************************************
@@ -834,6 +843,7 @@ namespace etl
       {
         return etl::chrono::duration<double, micro>(s);
       }
+#endif // ETL_USING_FLOATING_POINT
 
       //***********************************************************************
       /// Literal for nanoseconds duration
@@ -847,6 +857,7 @@ namespace etl
         return etl::chrono::nanoseconds(static_cast<etl::chrono::nanoseconds::rep>(s));
       }
 
+#if ETL_USING_FLOATING_POINT
       //***********************************************************************
       /// Literal for floating point microseconds duration
       //***********************************************************************
@@ -858,6 +869,7 @@ namespace etl
       {
         return etl::chrono::duration<double, nano>(s);
       }
+#endif // ETL_USING_FLOATING_POINT
     }
   }
 }
