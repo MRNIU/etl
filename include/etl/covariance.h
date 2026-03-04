@@ -37,6 +37,8 @@ SOFTWARE.
 
 #include <stdint.h>
 
+#if ETL_USING_FLOATING_POINT
+
 namespace etl
 {
   namespace private_covariance
@@ -236,5 +238,7 @@ namespace etl
   template <bool Covariance_Type, typename TInput, typename TCalc>
   ETL_CONSTANT int covariance<Covariance_Type, TInput, TCalc>::Adjustment;
 }
+
+#endif // ETL_USING_FLOATING_POINT
 
 #endif

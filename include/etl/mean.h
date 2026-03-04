@@ -38,6 +38,8 @@ SOFTWARE.
 //#include <math.h>
 #include <stdint.h>
 
+#if ETL_USING_FLOATING_POINT
+
 namespace etl
 {
   namespace private_mean
@@ -200,5 +202,7 @@ namespace etl
     mutable bool   recalculate;
   };
 }
+
+#endif // ETL_USING_FLOATING_POINT
 
 #endif

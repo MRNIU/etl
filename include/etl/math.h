@@ -44,6 +44,8 @@ SOFTWARE.
 #include "limits.h"
 #include "type_traits.h"
 
+#if ETL_USING_FLOATING_POINT
+
 namespace etl
 {
   //***************************************************************************
@@ -152,5 +154,7 @@ namespace etl
   }
 #include "private/diagnostic_pop.h"
 }
+
+#endif // ETL_USING_FLOATING_POINT
 
 #endif

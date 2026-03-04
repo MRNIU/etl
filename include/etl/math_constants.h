@@ -31,6 +31,8 @@ SOFTWARE.
 
 #include "platform.h"
 
+#if ETL_USING_FLOATING_POINT
+
 namespace etl
 {
   namespace private_math_constants
@@ -85,5 +87,7 @@ namespace etl
   {
   };
 }
+
+#endif // ETL_USING_FLOATING_POINT
 
 #endif
