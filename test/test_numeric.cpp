@@ -82,6 +82,7 @@ namespace
       CHECK_EQUAL((std::numeric_limits<uint32_t>::max() / 2U) + 1, (etl::midpoint(std::numeric_limits<uint32_t>::max(), std::numeric_limits<uint32_t>::min())));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_midpoint_floating_point)
     {
@@ -93,6 +94,7 @@ namespace
       CHECK_CLOSE(0.0, (etl::midpoint(-std::numeric_limits<double>::max(), std::numeric_limits<double>::max())), 0.001);
       CHECK_CLOSE(0.0, (etl::midpoint(std::numeric_limits<double>::max(), -std::numeric_limits<double>::max())), 0.001);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_midpoint_pointer)
@@ -163,6 +165,7 @@ namespace
     }
 #endif
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_lerp_floating_point)
     {
@@ -204,5 +207,6 @@ namespace
       CHECK_CLOSE(10.0, etl::lerp(10.0, 10.0, 1),   0.001);
       CHECK_CLOSE(10.0, etl::lerp(10,   10,   1),   0.001);
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }

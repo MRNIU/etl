@@ -355,6 +355,7 @@ namespace
       CHECK(etl::is_unsigned<Test>::value               == std::is_unsigned<Test>::value);
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_is_floating_point)
     {
@@ -384,6 +385,7 @@ namespace
       CHECK(etl::is_floating_point<long double>::value        == std::is_floating_point<long double>::value);
       CHECK(etl::is_floating_point<Test>::value               == std::is_signed<Test>::value);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_is_pointer)

@@ -36,8 +36,10 @@ SOFTWARE.
 
 #include "etl/private/diagnostic_useless_cast_push.h"
 
+#if ETL_USING_FLOATING_POINT
 namespace
 {
+
   //***********************************
   struct Object
   {
@@ -110,6 +112,7 @@ namespace etl
     return success;
   }
 }
+#endif // ETL_USING_FLOATING_POINT
 
 namespace
 {
@@ -864,6 +867,7 @@ namespace
       CHECK_EQUAL(expect_data[3], get_data[3]);
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(put_get_multiple_full_size)
     {
@@ -926,7 +930,9 @@ namespace
       CHECK(bit_stream.get(rc2));
       CHECK_EQUAL(int(c2), int(rc2));
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(put_get_multiple_variable_size)
     {
@@ -1021,7 +1027,9 @@ namespace
       CHECK(bit_stream.get(rll, 47));
       CHECK_EQUAL(int(ll), int(rll));
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(put_get_object_global)
     {
@@ -1046,7 +1054,9 @@ namespace
       CHECK_EQUAL(object1, object1a);
       CHECK_EQUAL(object2, object2a);
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(put_get_multiple_float)
     {
@@ -1072,6 +1082,7 @@ namespace
       CHECK(bit_stream.get(rd));
       CHECK_CLOSE(f, rd, 0.1f);
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }
 

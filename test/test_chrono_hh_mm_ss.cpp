@@ -182,6 +182,7 @@ namespace
       CHECK_TRUE((std::is_same<duration_type, Chrono::hh_mm_ss<duration_type>::precision>::value));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_construction_with_float_seconds)
     {
@@ -285,5 +286,6 @@ namespace
       CHECK_EQUAL(0, time.fractional_width);
       CHECK_TRUE((std::is_same<duration_type, Chrono::hh_mm_ss<duration_type>::precision>::value));
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }

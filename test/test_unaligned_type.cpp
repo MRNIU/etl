@@ -103,6 +103,7 @@ namespace
       CHECK_EQUAL(uint64_t(0xEE23456789ABCDEF), uint64_t(be_v3));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_copy_construction_float)
     {
@@ -150,6 +151,7 @@ namespace
       CHECK_EQUAL(3.1415927L, le_v3);
       CHECK_EQUAL(3.1415927L, be_v3);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_construction_from_buffer)
@@ -771,6 +773,7 @@ namespace
       CHECK_EQUAL(int(0x01234567), int(be_v3));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_cross_assignment_float)
     {
@@ -833,6 +836,7 @@ namespace
       CHECK_CLOSE(3.1415927L, le_v3, 0.001);
       CHECK_CLOSE(3.1415927L, be_v3, 0.001);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_data)

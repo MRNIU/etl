@@ -39,8 +39,10 @@ SOFTWARE.
 
 #include "etl/private/diagnostic_useless_cast_push.h"
 
+#if ETL_USING_FLOATING_POINT
 namespace
 {
+
   //***********************************
   struct Object
   {
@@ -102,6 +104,7 @@ namespace etl
     return result;
   }
 }
+#endif // ETL_USING_FLOATING_POINT
 
 namespace
 {
@@ -1020,6 +1023,7 @@ namespace
       CHECK_EQUAL(0x12345678, i.value());
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(write_read_multiple_big_endian)
     {
@@ -1082,7 +1086,9 @@ namespace
       CHECK(rc2 = reader.read<char>());
       CHECK_EQUAL(int(c2), int(rc2.value()));
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(write_read_multiple_little_endian)
     {
@@ -1145,7 +1151,9 @@ namespace
       CHECK(rc2 = reader.read<char>());
       CHECK_EQUAL(int(c2), int(rc2.value()));
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(write_read_object)
     {
@@ -1205,7 +1213,9 @@ namespace
       CHECK_EQUAL(object2.d, object2a.d);
       CHECK_EQUAL(int(object2.c), int(object2a.c));
     }
+#endif // ETL_USING_FLOATING_POINT
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(write_read_multiple_float)
     {
@@ -1231,6 +1241,7 @@ namespace
       CHECK(rd = reader.read<double>());
       CHECK_CLOSE(d, rd.value(), 0.1);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(write_read_int16_t_with_skip)

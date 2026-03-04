@@ -33,6 +33,7 @@ SOFTWARE.
 #include <stdint.h>
 #include <type_traits>
 
+#if ETL_USING_FLOATING_POINT
 namespace
 {
   SUITE(test_math)
@@ -132,3 +133,4 @@ namespace
     }
   }
 }
+#endif // ETL_USING_FLOATING_POINT

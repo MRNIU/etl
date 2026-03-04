@@ -242,6 +242,7 @@ namespace
       CHECK(etl::wstring<17>(STR("1e240")) ==             etl::to_string(123456, str, Format().hex()));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_floating_point_no_append)
     {
@@ -307,6 +308,7 @@ namespace
       CHECK(etl::wstring<20>(STR("10.0")) ==    etl::to_string(9.999999, str, Format().precision(1).width(4).right()));
       CHECK(etl::wstring<20>(STR("20.0")) ==    etl::to_string(19.999999, str, Format().precision(1).width(4).right()));
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_bool_no_append)

@@ -650,6 +650,7 @@ namespace
       CHECK_EQUAL(STD_NL::tinyness_before,   ETL_NL::tinyness_before);
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_float)
     {
@@ -730,5 +731,6 @@ namespace
       CHECK_EQUAL(STD_NL::radix,             ETL_NL::radix);
       CHECK_EQUAL(STD_NL::round_error(),     ETL_NL::round_error());
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }

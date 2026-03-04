@@ -34,6 +34,7 @@ SOFTWARE.
 #include <algorithm>
 #include <math.h>
 
+#if ETL_USING_FLOATING_POINT
 namespace
 {
   constexpr size_t Size = 10UL;
@@ -95,3 +96,4 @@ namespace
     }
   }
 }
+#endif // ETL_USING_FLOATING_POINT

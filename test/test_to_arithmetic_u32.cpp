@@ -711,6 +711,7 @@ namespace
       CHECK(!etl::to_arithmetic<uint64_t>(uint64_overflow_max.c_str(), uint64_overflow_max.size(), etl::hex));
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_valid_float)
     {
@@ -1004,6 +1005,7 @@ namespace
       text = STR("-123.45E10000");
       CHECK_EQUAL(etl::to_arithmetic_status::Overflow, etl::to_arithmetic<long double>(text.c_str(), text.size()).error());
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
 #if ETL_USING_CPP14

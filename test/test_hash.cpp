@@ -166,6 +166,7 @@ namespace
       }
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_hash_float)
     {
@@ -228,6 +229,7 @@ namespace
         CHECK_EQUAL(hash1, hash2);
       }
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_hash_pointer)

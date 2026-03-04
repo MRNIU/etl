@@ -32,6 +32,7 @@ SOFTWARE.
 
 #include <array>
 
+#if ETL_USING_FLOATING_POINT
 namespace
 {
   std::array<char, 10> input_c
@@ -162,3 +163,4 @@ namespace
     }
   }
 }
+#endif // ETL_USING_FLOATING_POINT

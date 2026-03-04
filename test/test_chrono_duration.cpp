@@ -581,6 +581,7 @@ namespace
       CHECK_EQUAL(1000000000, result.count()); // 1,000 * 1,000,000 = 1,000,000,000 seconds
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_multiplication_with_floating_point_scalar_duration_scalar)
     {
@@ -591,6 +592,7 @@ namespace
 
       CHECK_EQUAL(25, result.count()); // 10 * 2.5 = 25 seconds
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_multiplication_with_different_representation_duration_scalar)
@@ -647,6 +649,7 @@ namespace
       CHECK_EQUAL(1000000000, result.count()); // 1,000 * 1,000,000 = 1,000,000,000 seconds
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_multiplication_with_floating_point_scalar_scalar_duration)
     {
@@ -657,6 +660,7 @@ namespace
 
       CHECK_EQUAL(25, result.count()); // 10 * 2.5 = 25 seconds
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_multiplication_with_different_representation_scalar_duration)
@@ -702,6 +706,7 @@ namespace
       CHECK_EQUAL(10, result.count()); // 10,000,000 / 1,000,000 = 10 seconds
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(test_division_with_floating_point_scalar_duration_scalar)
     {
@@ -712,6 +717,7 @@ namespace
 
       CHECK_EQUAL(4, result.count()); // 10 / 2.5 = 4 seconds
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //*************************************************************************
     TEST(test_division_with_different_representation_duration_scalar)

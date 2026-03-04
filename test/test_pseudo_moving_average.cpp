@@ -269,6 +269,7 @@ namespace
       CHECK_EQUAL(280U, cma.value());
     }
 
+#if ETL_USING_FLOATING_POINT
     //*************************************************************************
     TEST(floating_point_average)
     {
@@ -344,5 +345,6 @@ namespace
 
       CHECK_CLOSE(2.82, cma.value(), 0.01);
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }
