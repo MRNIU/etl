@@ -48,7 +48,9 @@ SOFTWARE.
 #include "variant.h"
 #include "visitor.h"
 
+#if ETL_USING_FLOATING_POINT
 #include <cmath>
+#endif // ETL_USING_FLOATING_POINT
 
 #if ETL_USING_CPP11
 
@@ -138,9 +140,11 @@ namespace etl
     unsigned int,
     long long int,
     unsigned long long int,
+#if ETL_USING_FLOATING_POINT
     float,
     double,
     long double,
+#endif // ETL_USING_FLOATING_POINT
     const char*,
     etl::string_view,
     const void*
@@ -302,6 +306,7 @@ namespace etl
     {
     }
 
+#if ETL_USING_FLOATING_POINT
     basic_format_arg(const float v)
     : data(v)
     {
@@ -316,6 +321,7 @@ namespace etl
     : data(v)
     {
     }
+#endif // ETL_USING_FLOATING_POINT
 
     basic_format_arg(const etl::string_view v)
     : data(v)
@@ -1039,6 +1045,7 @@ namespace etl
       format_plain_num(it, value, spec, width);
     }
 
+#if ETL_USING_FLOATING_POINT
     template<typename OutputIt, typename T>
     void format_floating_default(OutputIt& it, T value, const format_spec_t& spec)
     {
@@ -1409,6 +1416,7 @@ namespace etl
         }
       }
     }
+#endif // ETL_USING_FLOATING_POINT
 
     template<class OutputIt>
     struct format_visitor
@@ -1490,6 +1498,7 @@ namespace etl
       return it;
     }
 
+#if ETL_USING_FLOATING_POINT
     template<typename OutputIt, typename Float>
     typename format_context<OutputIt>::iterator format_aligned_floating(Float arg, format_context<OutputIt>& fmt_ctx)
     {
@@ -1534,6 +1543,7 @@ namespace etl
       private_format::fill<OutputIt>(it, suffix_size, fmt_ctx.format_spec.fill);
       return it;
     }
+#endif // ETL_USING_FLOATING_POINT
 
     template<typename OutputIt>
     void format_string_view(OutputIt& it, etl::string_view arg, const format_spec_t& spec)
@@ -2072,6 +2082,7 @@ namespace etl
     }
   };
 
+#if ETL_USING_FLOATING_POINT
   template<>
   struct formatter<float>
   {
@@ -2119,6 +2130,7 @@ namespace etl
       return private_format::format_aligned_floating<OutputIt, long double>(arg, fmt_ctx);
     }
   };
+#endif // ETL_USING_FLOATING_POINT
 
   template<>
   struct formatter<etl::string_view>

@@ -45,7 +45,9 @@ SOFTWARE.
 #include "../math.h"
 #include "../limits.h"
 
+#if ETL_USING_FLOATING_POINT
 #include <math.h>
+#endif // ETL_USING_FLOATING_POINT
 
 #if ETL_USING_STL && ETL_USING_CPP11
   #include <iterator> // For std::begin, std::end and std::size
@@ -220,6 +222,7 @@ namespace etl
       etl::private_to_string::add_alignment(str, start, format);
     }
 
+#if ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// Helper function for floating point nan and inf.
     //***************************************************************************
@@ -356,6 +359,7 @@ namespace etl
 
       etl::private_to_string::add_alignment(str, start, format);
     }
+#endif // ETL_USING_FLOATING_POINT
 
     //***************************************************************************
     /// Helper function for denominated integers.
@@ -615,6 +619,7 @@ namespace etl
     //***************************************************************************
     /// For floating point.
     //***************************************************************************
+#if ETL_USING_FLOATING_POINT
     template <typename T, typename TIString>
     typename etl::enable_if<etl::is_floating_point<T>::value, const TIString&>::type
       to_string(const T value, TIString& str, const etl::basic_format_spec<TIString>& format, const bool append = false)
@@ -623,6 +628,7 @@ namespace etl
 
       return str;
     }
+#endif // ETL_USING_FLOATING_POINT
   }
 }
 
