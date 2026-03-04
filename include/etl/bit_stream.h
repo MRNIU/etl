@@ -172,6 +172,7 @@ namespace etl
     }
 #endif
 
+#if ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// For floating point types
     //***************************************************************************
@@ -195,6 +196,7 @@ namespace etl
       return success;
     }
 
+#endif // ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// For bool types
     //***************************************************************************
@@ -258,6 +260,7 @@ namespace etl
       return success;
     }
 
+#if ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// For floating point types
     //***************************************************************************
@@ -291,6 +294,7 @@ namespace etl
       return success;
     }
 
+#endif // ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// Returns the number of bytes used in the stream.
     //***************************************************************************
@@ -456,6 +460,7 @@ namespace etl
       return result;
     }
 
+#if ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// Helper function for floating point types
     //***************************************************************************
@@ -496,6 +501,7 @@ namespace etl
       }
     }
 
+#endif // ETL_USING_FLOATING_POINT
     //***************************************************************************
     /// Step the specified number of bits along the stream.
     /// The nbits will never be larger than 'bits_available_in_char'.

@@ -62,6 +62,7 @@ namespace etl
     }
   }
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// midpoint
   /// For floating point.
@@ -83,6 +84,7 @@ namespace etl
                   ((a / T(2)) + b) :
                   (a / T(2)) + (b / T(2));
   }
+#endif // ETL_USING_FLOATING_POINT
 
   //***************************************************************************
   /// midpoint
@@ -184,6 +186,7 @@ namespace etl
     return a;
   }
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// Linear interpolation
   /// For floating point.
@@ -213,6 +216,7 @@ namespace etl
 
     return typecast_a(a) + (typecast_t(t) * (typecast_b(b) - typecast_a(a)));
   }
+#endif // ETL_USING_FLOATING_POINT
 }
 
 #endif

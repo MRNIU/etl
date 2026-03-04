@@ -799,9 +799,11 @@ namespace etl
   typedef unaligned_type<int64_t,            etl::endianness::value()> host_int64_t;
   typedef unaligned_type<uint64_t,           etl::endianness::value()> host_uint64_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type<float,              etl::endianness::value()> host_float_t;
   typedef unaligned_type<double,             etl::endianness::value()> host_double_t;
   typedef unaligned_type<long double,        etl::endianness::value()> host_long_double_t;
+#endif // ETL_USING_FLOATING_POINT
 #endif
 
   // Little Endian
@@ -828,9 +830,11 @@ namespace etl
   typedef unaligned_type<int64_t,            etl::endian::little> le_int64_t;
   typedef unaligned_type<uint64_t,           etl::endian::little> le_uint64_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type<float,              etl::endian::little> le_float_t;
   typedef unaligned_type<double,             etl::endian::little> le_double_t;
   typedef unaligned_type<long double,        etl::endian::little> le_long_double_t;
+#endif // ETL_USING_FLOATING_POINT
 
   // Big Endian
   typedef unaligned_type<char,               etl::endian::big> be_char_t;
@@ -856,9 +860,11 @@ namespace etl
   typedef unaligned_type<int64_t,            etl::endian::big> be_int64_t;
   typedef unaligned_type<uint64_t,           etl::endian::big> be_uint64_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type<float,              etl::endian::big> be_float_t;
   typedef unaligned_type<double,             etl::endian::big> be_double_t;
   typedef unaligned_type<long double,        etl::endian::big> be_long_double_t;
+#endif // ETL_USING_FLOATING_POINT
 
   // Network Order
   typedef be_char_t        net_char_t;
@@ -884,9 +890,11 @@ namespace etl
   typedef be_int64_t       net_int64_t;
   typedef be_uint64_t      net_uint64_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef be_float_t       net_float_t;
   typedef be_double_t      net_double_t;
   typedef be_long_double_t net_long_double_t;
+#endif // ETL_USING_FLOATING_POINT
 
 #if ETL_USING_CPP11
   template <typename T, int Endian>
@@ -923,9 +931,11 @@ namespace etl
   typedef unaligned_type_ext<int64_t,            etl::endianness::value()> host_int64_ext_t;
   typedef unaligned_type_ext<uint64_t,           etl::endianness::value()> host_uint64_ext_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type_ext<float,              etl::endianness::value()> host_float_ext_t;
   typedef unaligned_type_ext<double,             etl::endianness::value()> host_double_ext_t;
   typedef unaligned_type_ext<long double,        etl::endianness::value()> host_long_double_ext_t;
+#endif // ETL_USING_FLOATING_POINT
 #endif
 
   // Little Endian
@@ -952,9 +962,11 @@ namespace etl
   typedef unaligned_type_ext<int64_t,            etl::endian::little> le_int64_ext_t;
   typedef unaligned_type_ext<uint64_t,           etl::endian::little> le_uint64_ext_t;
   #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type_ext<float,              etl::endian::little> le_float_ext_t;
   typedef unaligned_type_ext<double,             etl::endian::little> le_double_ext_t;
   typedef unaligned_type_ext<long double,        etl::endian::little> le_long_double_ext_t;
+#endif // ETL_USING_FLOATING_POINT
 
   // Big Endian
   typedef unaligned_type_ext<char,               etl::endian::big> be_char_ext_t;
@@ -980,9 +992,11 @@ namespace etl
   typedef unaligned_type_ext<int64_t,            etl::endian::big> be_int64_ext_t;
   typedef unaligned_type_ext<uint64_t,           etl::endian::big> be_uint64_ext_t;
   #endif
+#if ETL_USING_FLOATING_POINT
   typedef unaligned_type_ext<float,              etl::endian::big> be_float_ext_t;
   typedef unaligned_type_ext<double,             etl::endian::big> be_double_ext_t;
   typedef unaligned_type_ext<long double,        etl::endian::big> be_long_double_ext_t;
+#endif // ETL_USING_FLOATING_POINT
 
   // Network Order
   typedef be_char_ext_t        net_char_ext_t;
@@ -1008,9 +1022,11 @@ namespace etl
   typedef be_int64_ext_t       net_int64_ext_t;
   typedef be_uint64_ext_t      net_uint64_ext_t;
 #endif
+#if ETL_USING_FLOATING_POINT
   typedef be_float_ext_t       net_float_ext_t;
   typedef be_double_ext_t      net_double_ext_t;
   typedef be_long_double_ext_t net_long_double_ext_t;
+#endif // ETL_USING_FLOATING_POINT
 
 #if ETL_USING_CPP11
   template <typename T, int Endian>

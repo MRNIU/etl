@@ -273,6 +273,7 @@ namespace etl
   template <typename T, const size_t SCALING_>
   ETL_CONSTANT size_t pseudo_moving_average<T, 0, SCALING_, true, false>::SCALING;
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   /// Pseudo Moving Average
   /// For floating point types.
@@ -422,5 +423,6 @@ namespace etl
     T average;                   ///< The current pseudo moving average.
   };
 }
+#endif // ETL_USING_FLOATING_POINT
 
 #endif

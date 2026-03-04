@@ -151,7 +151,7 @@ namespace etl
     /// Write a value to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, void>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), void>::type
       write_unchecked(T value)
     {
       to_bytes<T>(value);
@@ -161,7 +161,7 @@ namespace etl
     /// Write a value to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, bool>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), bool>::type
       write(T value)
     {
       bool success = (available<T>() > 0U);
@@ -178,7 +178,7 @@ namespace etl
     /// Write a range of T to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, void>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), void>::type
       write_unchecked(const etl::span<T>& range)
     {
       typename etl::span<T>::iterator itr = range.begin();
@@ -194,7 +194,7 @@ namespace etl
     /// Write a range of T to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, bool>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), bool>::type
       write(const etl::span<T>& range)
     {
       bool success = (available<T>() >= range.size());
@@ -211,7 +211,7 @@ namespace etl
     /// Write a range of T to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, void>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), void>::type
       write_unchecked(const T* start, size_t length)
     {
       while (length-- != 0U)
@@ -225,7 +225,7 @@ namespace etl
     /// Write a range of T to the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, bool>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), bool>::type
       write(const T* start, size_t length)
     {
       bool success = (available<T>() >= length);
@@ -569,7 +569,7 @@ namespace etl
     /// Read a value from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, T>::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), T>::type
       read_unchecked()
     {
       return from_bytes<T>();
@@ -579,7 +579,7 @@ namespace etl
     /// Read a value from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, etl::optional<T> >::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), etl::optional<T> >::type
       read()
     {
       etl::optional<T> result;
@@ -632,7 +632,7 @@ namespace etl
     /// Read a range of T from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, etl::span<const T> >::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), etl::span<const T> >::type
       read_unchecked(etl::span<T> range)
     {
       typename etl::span<T>::iterator destination = range.begin();
@@ -649,7 +649,7 @@ namespace etl
     /// Read a range of T from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, etl::optional<etl::span<const T> > >::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), etl::optional<etl::span<const T> > >::type
       read(etl::span<T> range)
     {
       // Do we have enough room?
@@ -665,7 +665,7 @@ namespace etl
     /// Read a range of T from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, etl::span<const T> >::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), etl::span<const T> >::type
       read_unchecked(T* start,  size_t length)
     {
       T* destination = start;
@@ -682,7 +682,7 @@ namespace etl
     /// Read a range of T from the stream.
     //***************************************************************************
     template <typename T>
-    typename etl::enable_if<etl::is_integral<T>::value || etl::is_floating_point<T>::value, etl::optional<etl::span<const T> > >::type
+    typename etl::enable_if<etl::is_integral<T>::value || (ETL_USING_FLOATING_POINT && etl::is_floating_point<T>::value), etl::optional<etl::span<const T> > >::type
       read(T* start, size_t length)
     {
       // Do we have enough room?
