@@ -316,9 +316,11 @@ namespace etl
   template <> struct is_signed<int> : true_type {};
   template <> struct is_signed<long> : true_type {};
   template <> struct is_signed<long long> : true_type {};
+#if ETL_USING_FLOATING_POINT
   template <> struct is_signed<float> : true_type {};
   template <> struct is_signed<double> : true_type {};
   template <> struct is_signed<long double> : true_type {};
+#endif // ETL_USING_FLOATING_POINT
 #if ETL_HAS_NATIVE_CHAR8_T
   template <> struct is_signed<char8_t> : true_type {};
 #endif
@@ -360,12 +362,14 @@ namespace etl
   //***************************************************************************
   /// is_floating_point
   template <typename T> struct is_floating_point : false_type {};
+#if ETL_USING_FLOATING_POINT
   template <> struct is_floating_point<float> : true_type {};
   template <> struct is_floating_point<double> : true_type {};
   template <> struct is_floating_point<long double> : true_type {};
   template <typename T> struct is_floating_point<const T> : is_floating_point<T> {};
   template <typename T> struct is_floating_point<volatile T> : is_floating_point<T> {};
   template <typename T> struct is_floating_point<const volatile T> : is_floating_point<T> {};
+#endif // ETL_USING_FLOATING_POINT
 
 #if ETL_USING_CPP17
   template <typename T>
@@ -1102,12 +1106,21 @@ typedef integral_constant<bool, true>  true_type;
   //***************************************************************************
   /// is_floating_point
   ///\ingroup type_traits
+#if ETL_USING_FLOATING_POINT
   template <typename T> struct is_floating_point : std::is_floating_point<T> {};
 
 #if ETL_USING_CPP17
   template <typename T>
   inline constexpr bool is_floating_point_v = std::is_floating_point_v<T>;
 #endif
+#else
+  template <typename T> struct is_floating_point : false_type {};
+
+#if ETL_USING_CPP17
+  template <typename T>
+  inline constexpr bool is_floating_point_v = false;
+#endif
+#endif // ETL_USING_FLOATING_POINT
 
   //***************************************************************************
   /// is_same
