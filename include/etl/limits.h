@@ -42,7 +42,9 @@ SOFTWARE.
 
 #include <limits.h>
 #include <stdint.h>
+#if ETL_USING_FLOATING_POINT
 #include <float.h>
+#endif // ETL_USING_FLOATING_POINT
 #include <math.h>
 
 #include "private/minmax_push.h"
@@ -55,6 +57,7 @@ SOFTWARE.
 #if ETL_NOT_USING_STL
   #define ETL_LOG10_OF_2(x) (((x) * 301) / 1000)
 
+#if ETL_USING_FLOATING_POINT
 #if !defined(LDBL_MIN) && defined(DBL_MIN)
   // Looks like we don't have these macros defined.
   // That probably means that 'long double' is the same size as 'double'.
@@ -99,6 +102,7 @@ SOFTWARE.
   #define ETL_NANL    nanl("")
   #define ETL_HAS_NAN true
 #endif
+#endif // ETL_USING_FLOATING_POINT
 
 namespace etl
 {
@@ -579,6 +583,7 @@ namespace etl
     template <typename T>
     ETL_CONSTANT bool integral_limits_unsigned_long_long<T>::is_modulo;
 
+#if ETL_USING_FLOATING_POINT
     //*********************************
     // Floating point limits common
     template <typename T = void>
@@ -759,6 +764,7 @@ namespace etl
 
     template <typename T>
     ETL_CONSTANT int floating_point_limits_long_double<T>::max_exponent10;
+  #endif // ETL_USING_FLOATING_POINT
   }
 
   //***************************************************************************
@@ -1085,6 +1091,7 @@ namespace etl
     static ETL_CONSTEXPR unsigned long long signaling_NaN() { return 0U; }
   };
 
+#if ETL_USING_FLOATING_POINT
   //***************************************************************************
   // float
   template<>
@@ -1141,6 +1148,7 @@ namespace etl
     static long double quiet_NaN() { return ETL_NANL; }
     static long double signaling_NaN() { return ETL_NANL; }
   };
+#endif // ETL_USING_FLOATING_POINT
 }
 
 #else
